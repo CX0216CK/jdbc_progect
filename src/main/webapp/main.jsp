@@ -168,7 +168,6 @@
 <script src="js/jquery.flot.stack.js"></script>
 <script src="js/jquery.flot.resize.min.js"></script>
 <!-- chart libraries end -->
-
 <!-- select or dropdown enhancer -->
 <script src="js/jquery.chosen.min.js"></script>
 <!-- checkbox, radio, and file input styler -->

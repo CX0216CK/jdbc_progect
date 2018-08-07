@@ -52,13 +52,12 @@
 					<h2>Welcome to Charisma</h2>
 				</div><!--/span-->
 			</div><!--/row-->
-			
 			<div class="row-fluid">
 				<div class="well span5 center login-box">
 					<div class="alert alert-info">
 						Please login with your Username and Password.
 					</div>
-					<form class="form-horizontal" action="main.jsp" method="post">
+					<form class="form-horizontal" action="login?methodName=login" method="post">
 						<fieldset>
 							<div class="input-prepend" title="Username" data-rel="tooltip">
 								<span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10" name="username" id="username" type="text" value="admin" />
