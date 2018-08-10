@@ -161,6 +161,7 @@
 
 if (!this.JSON2)
 {
+
     this.JSON2 = {};
 }
 

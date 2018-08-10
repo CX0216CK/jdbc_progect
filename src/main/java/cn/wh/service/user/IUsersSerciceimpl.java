@@ -45,4 +45,14 @@ public class IUsersSerciceimpl implements IUsersSercice {
     public List<Users> findAllByPage(PageUtil util, Object... params) {
         return null;
     }
+
+    @Override
+    public String validateName(String userName) {
+        return userDao.validateName(userName);
+    }
+
+    @Override
+    public Users login(String userName, String passwordInDB) {
+        return userDao.login(userName,passwordInDB);
+    }
 }
