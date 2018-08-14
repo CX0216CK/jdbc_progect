@@ -36,7 +36,6 @@ public abstract class BaseServlet extends HttpServlet {
 
         String methodName = req.getParameter("methodName");
 
-        System.out.println("=====01:先进入");
 
         //根据用户传递的参数   确定执行哪个子servlet中的这个methodName方法
 
@@ -62,7 +61,6 @@ public abstract class BaseServlet extends HttpServlet {
 
                 result = method.invoke(this, req, resp); //执行方法
 
-                System.out.println("======>获取了 需要返回的页面" + result);
 
             } catch (Exception e) {
 
@@ -87,7 +85,6 @@ public abstract class BaseServlet extends HttpServlet {
 
         if (result == null) {
 
-            System.out.println("=====没有返回值=====");
 
         } else {  //要么 json  要么字符串
 
@@ -95,17 +92,14 @@ public abstract class BaseServlet extends HttpServlet {
 
                 String viewName = result.toString() + ".jsp";
 
-                System.out.println("====>最终的跳转页面===》" + viewName);
 
                 req.getRequestDispatcher(viewName).forward(req, resp);
 
             } else {//返回值是json
 
-                System.out.println("====>json数据的处理===》");
 
                 String resultJson = (String) JSON.toJSONString(result);
 
-                System.out.println("json=====>" + resultJson);
 
                 PrintWriter writer = resp.getWriter();
 

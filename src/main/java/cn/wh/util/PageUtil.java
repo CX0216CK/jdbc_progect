@@ -1,10 +1,22 @@
 package cn.wh.util;
 
-public class PageUtil {
+import java.util.List;
+
+public class PageUtil<E> {
     private int pageIndex; //当前页
-    private int pageSize; //页大小
+    private int pageSize=2; //页大小
     private int pageCount; //总页数
     private int totalCount; //总记录数
+    private List<E> list;
+
+    public List<E> getList() {
+        return list;
+    }
+
+    public void setList(List<E> list) {
+        this.list = list;
+    }
+
     public int getPageIndex() {
         return pageIndex;
     }
@@ -42,6 +54,7 @@ public class PageUtil {
     public void setTotalCount(int totalCount) {
         this.totalCount = totalCount;
     }
+
     @Override
     public String toString() {
         return "PageUtil{" +
@@ -49,7 +62,7 @@ public class PageUtil {
                 ", pageSize=" + pageSize +
                 ", pageCount=" + pageCount +
                 ", totalCount=" + totalCount +
+                ", list=" + list +
                 '}';
     }
-
 }

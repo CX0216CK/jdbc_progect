@@ -4,20 +4,43 @@ public class Users {
     private Integer uid;
     private String uName;
     private String upwd;
-
     private Integer type;
     private String Email;
-    public Users() {
+    private String file;
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "uid=" + uid +
+                ", uName='" + uName + '\'' +
+                ", upwd='" + upwd + '\'' +
+                ", type=" + type +
+                ", Email='" + Email + '\'' +
+                ", file='" + file + '\'' +
+                '}';
     }
 
+    public String getFile() {
+        return file;
+    }
 
-    public Users(Integer uid, String uName, String upwd, Integer type, String email) {
+    public void setFile(String file) {
+        this.file = file;
+    }
+
+    public Users(Integer uid, String uName, String upwd, Integer type, String email, String file) {
         this.uid = uid;
         this.uName = uName;
         this.upwd = upwd;
         this.type = type;
         Email = email;
+        this.file = file;
     }
+
+    public Users() {
+
+    }
+
 
     public Integer getUid() {
         return uid;
@@ -43,16 +66,6 @@ public class Users {
         this.upwd = upwd;
     }
 
-    @Override
-    public String toString() {
-        return "Users{" +
-                "uid=" + uid +
-                ", uName='" + uName + '\'' +
-                ", upwd='" + upwd + '\'' +
-                ", type=" + type +
-                ", Email='" + Email + '\'' +
-                '}';
-    }
 
     public Integer getType() {
         return type;

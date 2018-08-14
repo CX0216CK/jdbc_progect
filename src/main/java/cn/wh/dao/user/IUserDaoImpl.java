@@ -6,21 +6,26 @@ import cn.wh.util.PageUtil;
 import cn.wh.util.ResultSetUtil;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class IUserDaoImpl extends BasoDao implements IUserDao {
 
     @Override
     public int add(Users users) {
-        String sql = "INSERT `news_userinfo` (`uname`,`upwd`,`email`,`type`) VALUES(?,?,?,?)";
-        Object[] obj = {users.getuName(), users.getUpwd(), users.getEmail(), users.getType()};
+        String sql = "INSERT `news_userinfo` (`uname`,`upwd`,`email`,`type`,`file`) VALUES(?,?,?,?,?)";
+        Object[] obj = {users.getuName(), users.getUpwd(), users.getEmail(), users.getType(),users.getFile()};
 
         return executeUpdate(sql, obj);
     }
 
     @Override
     public int deleteByCondition(Serializable id) {
-        return 0;
+        String sql="delete FROM news_userinfo where uid= ?";
+        int count = executeUpdate(sql, id);
+
+        return count;
     }
 
     @Override
@@ -40,12 +45,26 @@ public class IUserDaoImpl extends BasoDao implements IUserDao {
 
     @Override
     public int findRownum() {
-        return 0;
+        String sql="SELECT count(1) as count FROM `news_userinfo`";
+        rs = executeQuery(sql);
+        int count=0;
+        try {
+            if (rs.next()){
+                count=rs.getInt("count");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
     }
 
     @Override
     public List<Users> findAllByPage(PageUtil util, Object... params) {
-        return null;
+        String sql="SELECT uid,uname,upwd,email,type ,`file` from news_userinfo LIMIT ?,?";
+        Object [] obj={(util.getPageIndex()-1)*util.getPageSize(),  util.getPageSize()};
+        rs=executeQuery(sql,obj);
+        List<Users> users = ResultSetUtil.eachList(rs, Users.class);
+        return users;
     }
 
     @Override
@@ -66,7 +85,7 @@ public class IUserDaoImpl extends BasoDao implements IUserDao {
 
     @Override
     public Users login(String userName, String passwordInDB) {
-        String sql="SELECT `uid`,`uname`,upwd,`email`,`type` FROM `news_userinfo` WHERE uname=? and upwd=? ";
+        String sql="SELECT `uid`,`uname`,upwd,`email`,`type`,`file` FROM `news_userinfo` WHERE uname=? and upwd=? ";
         Object [] params={userName,passwordInDB};
         rs=executeQuery(sql,params);
         Users users= ResultSetUtil.eachOne(rs,Users.class);

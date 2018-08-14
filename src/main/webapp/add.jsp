@@ -1,24 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/8/3
-  Time: 11:40
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
-    <!--
-		Charisma v1.0.0
-
-		Copyright 2012 Muhammad Usman
-		Licensed under the Apache License v2.0
-		http://www.apache.org/licenses/LICENSE-2.0
-
-		http://usman.it
-		http://twitter.com/halalit_usman
-	-->
     <meta charset="utf-8">
     <title>Free HTML5 Bootstrap Admin Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,10 +39,14 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
     <!-- The fav icon -->
     <link rel="shortcut icon" href="img/favicon.ico">
+
 </head>
+
 <body>
+
 <div class="row-fluid sortable">
     <div class="box span12">
         <div class="box-header well" data-original-title>
@@ -71,37 +58,26 @@
             </div>
         </div>
         <div class="box-content">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="/home?methodName=upload" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Datepicker, Autocomplete, WYSIWYG</legend>
+
                     <div class="control-group">
-                        <label class="control-label" for="typeahead">Auto complete </label>
+                        <label class="control-label">用户名</label>
                         <div class="controls">
-                            <input type="text" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
-                            <p class="help-block">Start typing to activate auto complete!</p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="date01">Date input</label>
-                        <div class="controls">
-                            <input type="text" class="input-xlarge datepicker" id="date01" value="02/16/12">
+                            <input type="text" class="input-xlarge"name="userName">
                         </div>
                     </div>
 
                     <div class="control-group">
                         <label class="control-label" for="fileInput">File input</label>
                         <div class="controls">
-                            <input class="input-file uniform_on" id="fileInput" type="file">
+                            <input class="input-file uniform_on" id="fileInput" name="fileName" type="file">
                         </div>
                     </div>
-                    <div class="control-group">
-                        <label class="control-label" for="textarea2">Textarea WYSIWYG</label>
-                        <div class="controls">
-                            <textarea class="cleditor" id="textarea2" rows="3"></textarea>
-                        </div>
-                    </div>
+
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">提交</button>
                         <button type="reset" class="btn">Cancel</button>
                     </div>
                 </fieldset>
@@ -111,9 +87,7 @@
     </div><!--/span-->
 
 </div><!--/row-->
-<!-- external javascript
-	================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+
 
 <!-- jQuery -->
 <script src="js/jquery-1.7.2.min.js"></script>
@@ -186,4 +160,5 @@
 <script src="js/charisma.js"></script>
 
 </body>
+
 </html>

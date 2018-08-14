@@ -38,7 +38,6 @@ public class UserServlet extends BaseServlet {
         users.setuName(userName);
         try {
             users.setUpwd(Md5Encrypt.getEncryptedPwd(password));
-            System.out.println(users.getUpwd());
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
@@ -54,7 +53,6 @@ public class UserServlet extends BaseServlet {
     }
 
     public String login(HttpServletRequest req, HttpServletResponse resp){
-        System.out.println("====>UserServlet===>login");
         //获取用户登录的用户名和密码
         String userName=req.getParameter("username");
         String password=req.getParameter("password");

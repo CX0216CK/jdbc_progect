@@ -18,7 +18,7 @@ public class IUsersSerciceimpl implements IUsersSercice {
 
     @Override
     public int deleteByCondition(Serializable id) {
-        return 0;
+        return userDao.deleteByCondition(id);
     }
 
     @Override
@@ -38,12 +38,12 @@ public class IUsersSerciceimpl implements IUsersSercice {
 
     @Override
     public int findRownum() {
-        return 0;
+        return userDao.findRownum();
     }
 
     @Override
     public List<Users> findAllByPage(PageUtil util, Object... params) {
-        return null;
+        return userDao.findAllByPage(util);
     }
 
     @Override
